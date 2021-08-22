@@ -10,10 +10,10 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '11'
-      - name: Build library
+      - name: Build and test library
         uses: christopherfrieler/gradle-wrapper-action@0.1.0
         with:
           arguments: |
-            assemble
+            check assemble
           artifacts: |
             jars build/libs/pbqp-*.jar
