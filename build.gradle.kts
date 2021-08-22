@@ -24,4 +24,9 @@ tasks {
     test {
         useJUnitPlatform()
     }
+
+    register("sourcesJar", Jar::class) {
+        from(project.sourceSets["main"].allJava.srcDirs)
+        archiveClassifier.set("sources")
+    }
 }
