@@ -14,6 +14,6 @@ jobs:
         uses: christopherfrieler/gradle-wrapper-action@0.1.0
         with:
           arguments: |
-            check assemble sourcesJar
+            check assemble sourcesJar javadocJar
           artifacts: |
             jars build/libs/pbqp-*.jar
