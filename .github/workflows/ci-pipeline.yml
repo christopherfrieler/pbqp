@@ -10,10 +10,15 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '11'
-      - name: Build and test library
+      - name: Configure Sonar-Analysis
+        run: |
+          . ./.github/configureSonarAnalysis.sh
+      - name: Build and check library
         uses: christopherfrieler/gradle-wrapper-action@0.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           arguments: |
-            check assemble sourcesJar javadocJar
+            check sonarqube assemble sourcesJar javadocJar
           artifacts: |
             jars build/libs/pbqp-*.jar
