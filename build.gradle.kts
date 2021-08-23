@@ -4,6 +4,7 @@ plugins {
     `java-library`
     kotlin("jvm") version "1.5.21"
     id("org.jetbrains.dokka") version "1.5.0"
+    jacoco
 }
 
 group = "rocks.frieler.pbqp"
@@ -24,6 +25,9 @@ tasks.withType<KotlinCompile> {
 tasks {
     test {
         useJUnitPlatform()
+    }
+    jacocoTestReport {
+        dependsOn(test)
     }
 
     register("sourcesJar", Jar::class) {
