@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.24")
 }
 
 tasks.withType<KotlinCompile> {

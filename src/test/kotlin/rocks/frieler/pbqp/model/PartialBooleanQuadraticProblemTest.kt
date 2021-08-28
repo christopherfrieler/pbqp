@@ -1,6 +1,7 @@
 package rocks.frieler.pbqp.model
 
-import org.junit.jupiter.api.Assertions.assertNotNull
+import assertk.assertThat
+import assertk.assertions.isNotNull
 import org.junit.jupiter.api.Test
 
 internal class PartialBooleanQuadraticProblemTest {
@@ -9,6 +10,6 @@ internal class PartialBooleanQuadraticProblemTest {
     internal fun `can create PBQP instance`() {
         val pbqp = PartialBooleanQuadraticProblem()
 
-        assertNotNull(pbqp)
+        assertThat(pbqp).isNotNull()
     }
 }
