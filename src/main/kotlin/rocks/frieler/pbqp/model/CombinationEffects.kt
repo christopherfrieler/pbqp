@@ -1,5 +1,12 @@
 package rocks.frieler.pbqp.model
 
+/**
+ * The [Effect]s for combinations of two options of two [Decision]s, when chosen together.
+ *
+ * There should be one instance of [CombinationEffects] for each pair of [Decision]s, managing their interdependencies.
+ *
+ * @param O the type of options for the [Decision]s
+ */
 class CombinationEffects<O>(
     val firstDecision: Decision<O>,
     val secondDecision: Decision<O>,
@@ -17,6 +24,12 @@ class CombinationEffects<O>(
         }
     }
 
+    /**
+     * Returns the [Effect] for the combination of two options, each from one of the two [Decision]s.
+     *
+     * @param optionOfOneDecision an option for one [Decision]
+     * @param optionOfOtherDecision an option for the other [Decision]
+     */
     fun getEffect(optionOfOneDecision: O, optionOfOtherDecision: O): Effect {
         return if (firstDecision.hasOption(optionOfOneDecision)) {
             require(secondDecision.hasOption(optionOfOtherDecision))
